@@ -5,9 +5,7 @@ export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState('');
   const [courseGoals, setCourseGoals] = useState([]);
 function goalInputHandler(enteredText) {
-  setEnteredGoalText(enteredText
-
-  )
+  setEnteredGoalText(enteredText)
 };
 function addGoalHandler() {
   setCourseGoals((currentCourseGoals) => [
@@ -19,15 +17,13 @@ function addGoalHandler() {
 
   return (
     <View style={styles.appContainer}>
-      
       <View style={styles.inputContainer}>
         <TextInput style={styles.textInput} placeholder="Your course goal!" onChangeText={goalInputHandler} />
         <Button title="Add Goals" onPress={addGoalHandler}/>
       </View>
       <View style={styles.goalsContainer}>
-        {courseGoals.map((course, i) => <Text key={i}>{course}</Text>)}
+        {courseGoals.map((course, i) => <View style={styles.goalItem} key={i}><Text style={styles.goalText} >{course}</Text></View>)}
       </View>
-
     </View>
   );
 }
@@ -41,8 +37,8 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flex: 1,
-   flexDirection: 'row',
-   alignItems:'center',
+    flexDirection: 'row',
+    alignItems:'center',
     justifyContent: 'space-between',
     gap:8,
     borderBottomWidth: 1,
@@ -54,5 +50,14 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 5
+  },
+  goalItem: {
+    margin: 8,
+    borderRadius: 6,
+    backgroundColor:'#5e0acc',
+    padding: 8,
+  },
+  goalText: {
+    color: 'white',
   }
 });
