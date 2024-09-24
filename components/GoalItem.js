@@ -6,9 +6,7 @@ export default function GoalItem({ text, onDeleteItem, id }) {
       <Pressable
         android_ripple={{ color: "#210644" }}
         onPress={() => onDeleteItem(id)}
-        // this function determines a change in style on iOS devices (defined because android_ripple doesn't work)
         style={({ pressed }) => pressed && styles.pressedItem}
-        // style={(pressData) => pressData.pressed && styles.pressedItem}
       >
         <Text style={styles.goalText}>{text}</Text>
       </Pressable>
